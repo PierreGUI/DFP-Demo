@@ -13,7 +13,7 @@ var TAG = "INTERSTITIAL";
 function doButtonClick(evt) {
     Ti.API.info(TAG, "Show interstitial");
     $.interBanner.showInterstitial();
-    $.backgroundText.text = "See logs for more info...";
+    $.backgroundText.text = "Please wait...";
     $.backgroundText.color = "#000";
 }
 
