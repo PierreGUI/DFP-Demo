@@ -1,0 +1,13 @@
+<Alloy>
+    <Window>
+        <RightNavButton>
+            <Button id="showBtn" onClick="doButtonClick" />
+        </RightNavButton>
+
+        <View id="background">
+            <Label id="backgroundText" text="Waiting for ad and/or user input..." />
+        </View>
+
+        <View module="ti.dfp" id="interBanner" onReceivead="doReceiveAd" />
+    </Window>
+</Alloy>

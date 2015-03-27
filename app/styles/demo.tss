@@ -1,0 +1,60 @@
+
+".container": {
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
+	layout: "vertical"
+}
+
+/* LABELS */
+".title": {
+	top: 0,
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
+	textAlign: "center"
+}
+
+/* ADS */
+".bannerWrap": {
+	top: 0, bottom: 10,
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL
+}
+".default": {
+	height: 70
+}
+".multiple": {
+	height:300
+}
+".smart": {
+	height: 100
+}
+".banner": {
+	top: 20
+}
+
+"#sizesBanner": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE, // on IOS only works for adSizes
+	adUnitId: "/6236286/sizesBanner",
+	adSizes: [
+        {width: 320, height: 50},
+        {width: 320, height: 100},
+        {width: 300, height: 100},
+        {width: 300, height: 250}
+    ],
+	borderColor: "#000",
+	backgroundColor: "#d8d8d8"
+}
+"#sizesBanner[platform=ios]": {
+	borderColor: "blue", // not android
+}
+"#sizesBanner[platform=android]": {
+}
+
+"#smartBanner": {
+	width: Ti.UI.FILL,
+	height: 80,
+	adUnitId: "/6236286/smartBanner",
+	backgroundColor: "grey",
+	borderColor: "green", // not android
+}

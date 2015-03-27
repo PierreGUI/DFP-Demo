@@ -1,0 +1,22 @@
+
+"#showBtn": {
+    width: Ti.UI.SIZE,
+    height: Ti.UI.SIZE,
+    title: "Show intertitial"
+}
+
+"#background": {
+    width: Ti.UI.FILL,
+    height: Ti.UI.FILL,
+    zIndex: 1
+}
+
+"#interBanner": {
+    top: 0, left: 0,
+    width: Ti.UI.FILL,
+    height: Ti.UI.FILL,
+    adUnitId: "/6236286/interstitialBanner",
+    interstitial: true,
+    visible: false,
+    zIndex: 10
+}

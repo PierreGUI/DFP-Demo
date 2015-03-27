@@ -1,0 +1,16 @@
+"TabGroup": {
+	backgroundColor:"white"
+},
+
+"#ads": {
+    title: "Ads"
+},
+"#demo": {
+    title: "Demo"
+},
+"#interstitial": {
+    title: "Interstitial"
+},
+"#penton": {
+    title: "Penton ads"
+},
