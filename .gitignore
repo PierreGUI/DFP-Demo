@@ -1,4 +1,3 @@
-
 .DS_Store
 Resources
 build.log
@@ -9,3 +8,4 @@ tmp
 .project
 .settings
 Thumbs.db
+modules
