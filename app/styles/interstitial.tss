@@ -7,16 +7,11 @@
 
 "#background": {
     width: Ti.UI.FILL,
-    height: Ti.UI.FILL,
-    zIndex: 1
+    height: Ti.UI.FILL
 }
 
-"#interBanner": {
-    top: 0, left: 0,
-    width: Ti.UI.FILL,
-    height: Ti.UI.FILL,
-    adUnitId: "/6236286/interstitialBanner",
-    interstitial: true,
-    visible: false,
-    zIndex: 10
-}
+/*
+customTargeting: {
+    InterTarg: "interstitial"
+},
+*/

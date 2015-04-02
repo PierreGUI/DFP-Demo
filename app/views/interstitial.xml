@@ -8,6 +8,6 @@
             <Label id="backgroundText" text="Waiting for ad and/or user input..." />
         </View>
 
-        <View module="ti.dfp" id="interBanner" onReceivead="doReceiveAd" />
+        <!-- <View module="ti.dfp" method="createInterstitial" id="interBanner" onReceivead="doReceiveAd" /> -->
     </Window>
 </Alloy>

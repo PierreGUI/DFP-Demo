@@ -27,7 +27,7 @@
             <FooterView>
                 <View backgroundColor="#DDD" height="Ti.UI.SIZE">
                     <Label>Footer View</Label>
-                    <View module="ti.dfp" id="sizesBanner" class="banner" onReceivead="doReceiveAd" />
+                    <!-- <View module="ti.dfp" id="sizesBanner" class="banner" onReceivead="doReceiveAd" /> -->
                 </View>
             </FooterView>
         </ListView>

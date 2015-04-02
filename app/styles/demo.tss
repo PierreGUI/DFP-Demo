@@ -35,11 +35,12 @@
 "#sizesBanner": {
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE, // on IOS only works for adSizes
-	adUnitId: "/6236286/sizesBanner",
+	adUnitId: "/6236286/interstitialWienke",
 	adSizes: [
         {width: 320, height: 50},
         {width: 320, height: 100},
         {width: 300, height: 100},
+        {width: 320, height: 480},
         {width: 300, height: 250}
     ],
 	borderColor: "#000",

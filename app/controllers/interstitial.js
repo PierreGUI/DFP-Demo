@@ -1,4 +1,8 @@
-var TAG = "INTERSTITIAL";
+var TAG = "INTERSTITIAL",
+    DFP = require("ti.dfp"),
+    interstitial = DFP.createInterstitial(),
+    adUnit = "/6236286/interstitial",
+    ready = false;
 
 /** Adding interstitial ads to your project
  * The recommended lifecycle for a DFPInterstitial is to preload it
@@ -7,13 +11,24 @@ var TAG = "INTERSTITIAL";
  */
 // Construct
 (function(args) {
-    Ti.API.info(TAG, "Construct interstitial page");
+    Ti.API.info(TAG, "Construct interstitial page " + adUnit);
+    interstitial.addEventListener('receivead', doReceiveAd);
+    interstitial.loadInterstitial(adUnit);
 })(arguments[0]);
 
 function doButtonClick(evt) {
     Ti.API.info(TAG, "Show interstitial");
-    $.interBanner.showInterstitial();
-    $.backgroundText.text = "Please wait...";
+    // Is my ad ready to show ?
+    if(ready) {
+        interstitial.showInterstitial();
+        ready = false;
+        $.showBtn.title = "Load intertitial";
+    } else {
+        // Maybe already shown, start a new one
+        interstitial.loadInterstitial(adUnit);
+        $.backgroundText.text = "Loading...";
+        $.showBtn.title = "Loading...";
+    }
     $.backgroundText.color = "#000";
 }
 
@@ -22,5 +37,11 @@ function doReceiveAd(evt) {
     if(evt.error) {
         $.backgroundText.text = evt.error;
         $.backgroundText.color = "red";
+        ready = false;
+        return;
     }
+    $.backgroundText.color = "#000";
+    $.backgroundText.text = "Interstitial ready to show!";
+    $.showBtn.title = "Show intertitial";
+    ready = true;
 }
