@@ -13,6 +13,7 @@ var TAG = "INTERSTITIAL",
 (function(args) {
     Ti.API.info(TAG, "Construct interstitial page " + adUnit);
     interstitial.addEventListener('receivead', doReceiveAd);
+    interstitial.addEventListener('dismiss', doCloseAd);
     interstitial.loadInterstitial(adUnit);
 })(arguments[0]);
 
@@ -23,6 +24,7 @@ function doButtonClick(evt) {
         interstitial.showInterstitial();
         ready = false;
         $.showBtn.title = "Load intertitial";
+        $.backgroundText.text = "Interstitial was shown!";
     } else {
         // Maybe already shown, start a new one
         interstitial.loadInterstitial(adUnit);
@@ -44,4 +46,9 @@ function doReceiveAd(evt) {
     $.backgroundText.text = "Interstitial ready to show!";
     $.showBtn.title = "Show intertitial";
     ready = true;
+}
+
+function doCloseAd(evt) {
+    Ti.API.info(TAG, "Close interstitial", JSON.stringify(evt));
+    $.backgroundText.text = "Interstitial was closed!";
 }
