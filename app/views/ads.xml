@@ -19,6 +19,8 @@
                 <Label text="Smart banner" class="title" />
                 <View module="ti.dfp" id="smartBanner" class="banner" onReceivead="doReceiveAd" />
             </View>
+
+            <Label text="Version: " id="version" />
         </ScrollView>
     </Window>
 </Alloy>

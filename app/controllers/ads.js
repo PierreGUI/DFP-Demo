@@ -9,6 +9,7 @@ var banners = {
 // Construct
 (function(args) {
     Ti.API.info(TAG, "Construct ads page");
+    $.version.text += Ti.App.version;
     resetButton();
 })(arguments[0]);
 

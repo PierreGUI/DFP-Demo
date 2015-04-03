@@ -20,6 +20,15 @@
 	width: Ti.UI.FILL,
 	textAlign: "center"
 }
+"#version": {
+	top: 15,
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
+	textAlign: "center",
+	font: {
+		fontSize: 10
+	}
+}
 
 /* ADS */
 ".bannerWrap": {
