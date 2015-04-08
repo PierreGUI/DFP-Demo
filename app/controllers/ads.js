@@ -39,7 +39,7 @@ function doReceiveAd(evt) {
         return Ti.API.error(TAG, "error receiving ad", evt);
     }
     Ti.API.info(TAG, "received ad", evt.width, evt.height);
-    // Ok this is kind of a hack, but works better than expected:
+    // Force layout to resize
     // TODO try: evt.source.setCurrentSize(...);
     evt.source.setWidth(evt.width);
     evt.source.setHeight(evt.height);

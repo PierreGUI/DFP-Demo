@@ -49,14 +49,9 @@
 	top: 20
 }
 
-"#sizesPlaceholder": {
-    height: 250,
-    width: Ti.UI.FILL
-}
-
 "#defaultBanner": {
 	width: 320,
-	height: 50,
+	height: Ti.UI.SIZE,
 	adWidth: 320,
 	adHeight: 50,
 	adUnitId: "/6236286/defaultBanner",
@@ -68,34 +63,23 @@
 }
 "#defaultBanner[platform=ios]": {
 	adWidth: '320dp', // don't change unity IOS
-	adHeight: '50dp',
-	borderColor: "red", // not android
-	backgroundColor: "#8d8d8d" // not android
+	adHeight: '50dp'
 }
 
 "#sizesBanner": {
 	width: Ti.UI.FILL,
-	height: Ti.UI.SIZE, // on IOS only works for adSizes
+	height: Ti.UI.SIZE,
 	adUnitId: "/6236286/sizesBanner",
 	adSizes: [
         {width: 320, height: 50},
         {width: 320, height: 100},
         {width: 300, height: 100},
         {width: 300, height: 250}
-    ],
-	borderColor: "#000",
-	backgroundColor: "#d8d8d8"
-}
-"#sizesBanner[platform=ios]": {
-	borderColor: "blue", // not android
-}
-"#sizesBanner[platform=android]": {
+    ]
 }
 
 "#smartBanner": {
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE,
-	adUnitId: "/6236286/smartBanner",
-	backgroundColor: "grey",
-	borderColor: "green", // not android
+	adUnitId: "/6236286/smartBanner"
 }

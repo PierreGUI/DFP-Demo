@@ -5,6 +5,10 @@
         </RightNavButton>
 
         <View class="container">
+            <View class="bannerWrap" platform="android" >
+                <Button id="refreshBtn" onClick="doButtonClick" />
+            </View>
+
             <View class="bannerWrap default">
                 <Label text="Default banner" class="title" />
                 <View module="ti.dfp" id="defaultBanner" class="banner" onReceivead="doReceiveAd" />

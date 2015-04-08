@@ -3,9 +3,6 @@
 		<Tab id="ads" activeTab="true">
 			<Require src="ads" />
 		</Tab>
-		<!-- <Tab id="demo" activeTab="true">
-			<Require src="demo" />
-		</Tab> -->
 		<Tab id="interstitial">
 			<Require src="interstitial" />
 		</Tab>
