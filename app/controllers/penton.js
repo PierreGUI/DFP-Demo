@@ -39,6 +39,8 @@ function doReceiveAd(evt) {
     }
     Ti.API.info(TAG, "received ad", evt.width, evt.height);
     // To be used when ads parent has a vertical layout
+    // Force layout to resize on iOS only
+    if(OS_ANDROID) return;
     evt.source.setWidth(evt.width);
     evt.source.setHeight(evt.height);
 }

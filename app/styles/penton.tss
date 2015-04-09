@@ -43,10 +43,6 @@
 		accuracy: 10
 	},
 }
-/*"#defaultBanner[platform=ios]": {
-	adWidth: '320dp', // don't change unity IOS
-	adHeight: '50dp'
-}*/
 
 "#sizesBanner": {
 	width: Ti.UI.FILL,
@@ -62,6 +58,6 @@
 
 "#smartBanner": {
 	width: Ti.UI.FILL,
-	height: 50,
+	height: Ti.UI.SIZE,
 	adUnitId: "/3834/penton_testapp"
 }
