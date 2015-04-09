@@ -2,7 +2,7 @@
 "#showBtn": {
     width: Ti.UI.SIZE,
     height: Ti.UI.SIZE,
-    title: "Show intertitial"
+    title: ""
 }
 
 "#background": {
@@ -10,8 +10,8 @@
     height: Ti.UI.FILL
 }
 
-/*
-customTargeting: {
-    InterTarg: "interstitial"
-},
-*/
+"#wrapper": {
+    width: Ti.UI.FILL,
+    height: Ti.UI.SIZE,
+    layout: "vertical"
+}

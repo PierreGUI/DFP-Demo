@@ -1,8 +1,32 @@
 var TAG = "INTERSTITIAL",
     DFP = require("ti.dfp"),
-    interstitial = DFP.createInterstitial(),
-    adUnit = "/6236286/interstitial",
-    ready = false;
+    interstitial = null,
+    adUnit = "/3834/penton_testapp",
+    currentState = null;
+
+// states
+var States = {
+    "LOAD": {
+        text: "Loading...",
+        button: "Loading..."
+    },
+    "READY": {
+        text: "Interstitial ready to show!",
+        button: "Show interstitial"
+    },
+    "SHOWN": {
+        text: "Interstitial was shown!",
+        button: "Load interstitial"
+    },
+    "CLOSE": {
+        text: "Interstitial was closed!",
+        button: "Load interstitial"
+    },
+    "ERROR": {
+        text: "Error receiving interstitial",
+        button: "Reload interstitial"
+    }
+};
 
 /** Adding interstitial ads to your project
  * The recommended lifecycle for a DFPInterstitial is to preload it
@@ -11,25 +35,36 @@ var TAG = "INTERSTITIAL",
  */
 // Construct
 (function(args) {
+    // check if google play services are available
+    if (OS_ANDROID && DFP.isGooglePlayServicesAvailable() != DFP.SUCCESS) {
+        alert("Google Play Services is not installed/updated/available");
+        return;
+    }
+
     Ti.API.info(TAG, "Construct interstitial page " + adUnit);
+    interstitial = DFP.createInterstitial();
     interstitial.addEventListener('receivead', doReceiveAd);
     interstitial.addEventListener('dismiss', doCloseAd);
     interstitial.loadInterstitial(adUnit);
 })(arguments[0]);
 
+// Update UI with predefined texts depending on given state
+function updateState(state) {
+    currentState = state;
+    $.showBtn.title = state.button;
+    $.backgroundText.text = state.text;
+}
+
 function doButtonClick(evt) {
     Ti.API.info(TAG, "Show interstitial");
     // Is my ad ready to show ?
-    if(ready) {
+    if(currentState === States.READY) {
         interstitial.showInterstitial();
-        ready = false;
-        $.showBtn.title = "Load intertitial";
-        $.backgroundText.text = "Interstitial was shown!";
+        updateState(States.SHOWN);
     } else {
         // Maybe already shown, start a new one
         interstitial.loadInterstitial(adUnit);
-        $.backgroundText.text = "Loading...";
-        $.showBtn.title = "Loading...";
+        updateState(States.LOAD);
     }
     $.backgroundText.color = "#000";
 }
@@ -37,18 +72,16 @@ function doButtonClick(evt) {
 function doReceiveAd(evt) {
     Ti.API.info(TAG, "Receive interstitial", JSON.stringify(evt));
     if(evt.error) {
-        $.backgroundText.text = evt.error;
+        updateState(States.ERROR);
+        $.backgroundText.text =  $.backgroundText.text + "\n" + evt.error;
         $.backgroundText.color = "red";
-        ready = false;
         return;
     }
     $.backgroundText.color = "#000";
-    $.backgroundText.text = "Interstitial ready to show!";
-    $.showBtn.title = "Show intertitial";
-    ready = true;
+    updateState(States.READY);
 }
 
 function doCloseAd(evt) {
     Ti.API.info(TAG, "Close interstitial", JSON.stringify(evt));
-    $.backgroundText.text = "Interstitial was closed!";
+    updateState(States.CLOSE);
 }
