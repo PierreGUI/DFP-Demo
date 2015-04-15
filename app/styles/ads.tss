@@ -36,48 +36,14 @@
 	width: Ti.UI.FILL
 }
 ".default": {
-	/*height: 70*/
 	top: 50
 }
 ".smart": {
-	/*height: 100*/
 	top: 150
 }
 ".multiple": {
-	/*height: 270*/
 	top: 250
 }
 ".banner": {
 	top: 20
-}
-
-"#defaultBanner": {
-	width: 320,
-	height: 50,
-	adWidth: 320,
-	adHeight: 50,
-	adUnitId: "/6236286/defaultBanner",
-	location: {
-		latitude: 35.779511,
-		longitude: -78.674045,
-		accuracy: 10
-	}
-}
-
-"#smartBanner": {
-	width: Ti.UI.FILL,
-	height: 50,
-	adUnitId: "/6236286/smartBanner"
-}
-
-"#sizesBanner": {
-	width: Ti.UI.FILL,
-	height: 250,
-	adUnitId: "/6236286/sizesBanner",
-	adSizes: [
-        {width: 320, height: 50},
-        {width: 320, height: 100},
-        {width: 300, height: 100},
-        {width: 300, height: 250}
-    ]
 }

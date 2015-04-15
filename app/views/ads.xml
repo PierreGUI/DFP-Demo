@@ -10,19 +10,16 @@
                 <Button id="refreshBtn" onClick="doButtonClick" platform="android" />
             </View>
 
-            <View class="bannerWrap default">
+            <View class="bannerWrap default" id="defaultAd">
                 <Label text="Default banner" class="title" />
-                <View module="ti.dfp" id="defaultBanner" class="banner" onReceivead="doReceiveAd" />
             </View>
 
-            <View class="bannerWrap smart" id="smartWrapper">
+            <View class="bannerWrap smart" id="smartAd">
                 <Label text="Smart banner" class="title" />
-                <View module="ti.dfp" id="smartBanner" class="banner" onReceivead="doReceiveAd" />
             </View>
 
-            <View class="bannerWrap multiple" id="size">
+            <View class="bannerWrap multiple" id="sizesAd">
                 <Label text="Multiple sizes" class="title" />
-                <View module="ti.dfp" id="sizesBanner" class="banner" onReceivead="doReceiveAd" />
             </View>
         </ScrollView>
     </Window>
