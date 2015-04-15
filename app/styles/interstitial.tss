@@ -4,6 +4,9 @@
     height: Ti.UI.SIZE,
     title: ""
 }
+"#showBtn[platform=android]": {
+    title: "Start"
+}
 
 "#background": {
     width: Ti.UI.FILL,

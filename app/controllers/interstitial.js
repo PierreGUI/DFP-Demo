@@ -56,7 +56,8 @@ function updateState(state) {
 }
 
 function doButtonClick(evt) {
-    Ti.API.info(TAG, "Show interstitial");
+    Ti.API.info(TAG, "Interstitial ("+ (interstitial.isReady()?"":"not ") +"ready)");
+    Ti.API.info(TAG, interstitial.isReady());
     // Is my ad ready to show ?
     if(currentState === States.READY) {
         interstitial.showInterstitial();

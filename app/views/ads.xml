@@ -15,14 +15,14 @@
                 <View module="ti.dfp" id="defaultBanner" class="banner" onReceivead="doReceiveAd" />
             </View>
 
-            <View class="bannerWrap multiple" id="size">
-                <Label text="Multiple sizes" class="title" />
-                <View module="ti.dfp" id="sizesBanner" class="banner" onReceivead="doReceiveAd" />
-            </View>
-
             <View class="bannerWrap smart" id="smartWrapper">
                 <Label text="Smart banner" class="title" />
                 <View module="ti.dfp" id="smartBanner" class="banner" onReceivead="doReceiveAd" />
+            </View>
+
+            <View class="bannerWrap multiple" id="size">
+                <Label text="Multiple sizes" class="title" />
+                <View module="ti.dfp" id="sizesBanner" class="banner" onReceivead="doReceiveAd" />
             </View>
         </ScrollView>
     </Window>

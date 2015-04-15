@@ -43,9 +43,10 @@ function doReceiveAd(evt) {
 
 /*** ABOUT SIZING on iOS
  ** DYNAMIC: vertical/horizontal layout
- * use evt.source.setWidth(evt.width)
+ * use evt.source.setHeight(evt.height)
+ * Example in penton.js
  *
  ** STATIC
- * specify adWidth: '320dp' (TODO or simply adWidth: 320)
- * smart banner: specify size (height: 50)
+ * specify view size (height: 50) to match adSize (adWidth, ...)
+ * Warning: Ti.UI.SIZE doesn't work (spent 2 days on it)
  */

@@ -39,13 +39,13 @@
 	/*height: 70*/
 	top: 50
 }
-".multiple": {
-	/*height: 270*/
-	top: 150
-}
 ".smart": {
 	/*height: 100*/
-	top: 450
+	top: 150
+}
+".multiple": {
+	/*height: 270*/
+	top: 250
 }
 ".banner": {
 	top: 20
@@ -61,11 +61,13 @@
 		latitude: 35.779511,
 		longitude: -78.674045,
 		accuracy: 10
-	},
+	}
 }
-"#defaultBanner[platform=ios]": {
-	adWidth: '320dp', // don't change unity IOS
-	adHeight: '50dp'
+
+"#smartBanner": {
+	width: Ti.UI.FILL,
+	height: 50,
+	adUnitId: "/6236286/smartBanner"
 }
 
 "#sizesBanner": {
@@ -78,10 +80,4 @@
         {width: 300, height: 100},
         {width: 300, height: 250}
     ]
-}
-
-"#smartBanner": {
-	width: Ti.UI.FILL,
-	height: 50,
-	adUnitId: "/6236286/smartBanner"
 }
