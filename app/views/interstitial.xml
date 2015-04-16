@@ -8,9 +8,9 @@
             <View id="wrapper">
                 <Label id="backgroundText" text="Waiting for ad and/or user input..." />
                 <Button id="showBtn" onClick="doButtonClick" platform="android" />
+
+                <Button id="newWinBtn" onClick="doNewWinClick" platform="android" />
             </View>
         </View>
-
-        <!-- <View module="ti.dfp" method="createInterstitial" id="interBanner" onReceivead="doReceiveAd" /> -->
     </Window>
 </Alloy>

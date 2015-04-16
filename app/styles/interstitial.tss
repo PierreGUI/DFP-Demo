@@ -18,3 +18,10 @@
     height: Ti.UI.SIZE,
     layout: "vertical"
 }
+
+"#newWinBtn": {
+    top: 20,
+    width: Ti.UI.SIZE,
+    height: Ti.UI.SIZE,
+    title: "Open in new Window"
+}

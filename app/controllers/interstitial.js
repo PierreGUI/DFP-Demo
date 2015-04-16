@@ -38,13 +38,14 @@ var States = {
     // check if google play services are available
     if (OS_ANDROID && DFP.isGooglePlayServicesAvailable() != DFP.SUCCESS) {
         alert("Google Play Services is not installed/updated/available");
-        return;
+        // return;
     }
 
     Ti.API.info(TAG, "Construct interstitial page " + adUnit);
     interstitial = DFP.createInterstitial();
     interstitial.addEventListener('receivead', doReceiveAd);
     interstitial.addEventListener('dismiss', doCloseAd);
+
     interstitial.loadInterstitial(adUnit);
 })(arguments[0]);
 
@@ -64,6 +65,7 @@ function doButtonClick(evt) {
         updateState(States.SHOWN);
     } else {
         // Maybe already shown, start a new one
+        // Will be attached to the current activity
         interstitial.loadInterstitial(adUnit);
         updateState(States.LOAD);
     }
@@ -85,4 +87,30 @@ function doReceiveAd(evt) {
 function doCloseAd(evt) {
     Ti.API.info(TAG, "Close interstitial", JSON.stringify(evt));
     updateState(States.CLOSE);
+}
+
+
+
+/**
+ * Load and open Interstitial in a new Window
+ * Proof of concept, sorry for the quick & dirty code
+ */
+function doNewWinClick() {
+    var interWin = Ti.UI.createWindow(),
+        closeButton = Ti.UI.createButton({ title: "close" });
+    // Will be executed after main window initialized
+    interWin.addEventListener("open", function(evt) {
+        var activity = evt.source.getActivity();
+        Ti.API.info(TAG, evt.source, JSON.stringify(activity));
+        // Will be attached to the specified activity
+        interstitial.loadInterstitial(adUnit, activity);
+        // Wait until ready TODO
+        _.delay(function() { interstitial.showInterstitial(); }, 1000);
+    });
+    // Close button
+    closeButton.addEventListener("click", function() {
+        interWin.close();
+    });
+    interWin.add(closeButton);
+    interWin.open();
 }
