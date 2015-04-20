@@ -34,6 +34,7 @@ function requestAd() {
 }
 function doReceiveAd(evt) {
     resetButton();
+    // If it failed, event object contains an attribute 'error'
     if(evt && evt.error) {
         return Ti.API.error(TAG, "error receiving ad", evt);
     }

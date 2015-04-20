@@ -28,12 +28,17 @@ var banners = {
             accuracy: 10
         }
     });
+
     banners.smart = DFP.createView({
         top: 20,
         width: Ti.UI.FILL,
         height: 50,
-        adUnitId: "/6236286/smartBanner"
+        adHeight: 50,
+        extras: {
+            key: 'value'
+        }
     });
+
     banners.sizes = DFP.createView({
         top: 20,
         width: Ti.UI.FILL,
@@ -60,6 +65,9 @@ var banners = {
 
 //  Handle button events
 function doButtonClick() {
+    // Simulate later unit ID change
+    banners.smart.adUnitId = "/6236286/smartBanner";
+
     $.refreshBtn.setTitle("Requesting...");
     $.refreshBtn.setEnabled(false);
     requestAd();
@@ -80,6 +88,7 @@ function requestAd() {
 }
 function doReceiveAd(evt) {
     resetButton();
+    // If it failed, event object contains an attribute 'error'
     if(evt && evt.error) {
         return Ti.API.error(TAG, "error receiving ad", evt);
     }
