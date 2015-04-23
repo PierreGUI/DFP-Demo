@@ -14,6 +14,9 @@ var banners = {
     $.version.text += Ti.App.version;
     resetButton();
 
+    // Enable debug
+    DFP.debug = true;
+
     // Instantiate DFP views
     banners.default = DFP.createView({
         top: 20,
@@ -36,7 +39,11 @@ var banners = {
         adHeight: 50,
         extras: {
             key: 'value'
-        }
+        },
+        testDevices: [
+            "8DC9DB6D6C9B1C0C7D29BF69155FC0AB",
+            // "testDeviceID"
+        ]
     });
 
     banners.sizes = DFP.createView({
