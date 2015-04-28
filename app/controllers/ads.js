@@ -37,11 +37,8 @@ var banners = {
         width: Ti.UI.FILL,
         height: 50,
         adHeight: 50,
-        extras: {
-            key: 'value'
-        },
         testDevices: [
-            "8DC9DB6D6C9B1C0C7D29BF69155FC0AB",
+            // "8DC9DB6D6C9B1C0C7D29BF69155FC0AB",
             // "testDeviceID"
         ]
     });
@@ -73,7 +70,10 @@ var banners = {
 //  Handle button events
 function doButtonClick() {
     // Simulate later unit ID change
-    banners.smart.adUnitId = "/6236286/smartBanner";
+    banners.smart.adUnitId = "/6236286/DFP-mode";
+    banners.smart.extras = {
+        mode: '1'
+    };
 
     $.refreshBtn.setTitle("Requesting...");
     $.refreshBtn.setEnabled(false);
