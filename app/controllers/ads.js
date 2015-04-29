@@ -34,12 +34,7 @@ var banners = {
         debug: true,
         top: 20,
         width: Ti.UI.FILL,
-        height: 50,
-        adHeight: 50,
-        testDevices: [
-            // "8DC9DB6D6C9B1C0C7D29BF69155FC0AB",
-            // "testDeviceID"
-        ]
+        height: 50
     });
 
 
@@ -53,6 +48,10 @@ var banners = {
             {width: 320, height: 100},
             {width: 300, height: 100},
             {width: 300, height: 250}
+        ],
+        testDevices: [
+            "8DC9DB6D6C9B1C0C7D29BF69155FC0AB",
+            "simulator"
         ]
     });
 
@@ -101,6 +100,9 @@ function doReceiveAd(evt) {
         return Ti.API.error(TAG, "error receiving ad", evt);
     }
     Ti.API.info(TAG, "received ad", evt.width, evt.height);
+    if(OS_ANDROID) return;
+    evt.source.setWidth(evt.width);
+    evt.source.setHeight(evt.height);
 }
 
 /*** ABOUT SIZING on iOS
