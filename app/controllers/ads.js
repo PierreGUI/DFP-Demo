@@ -1,5 +1,6 @@
 var TAG = "DEMO",
-    DFP = require("ti.dfp");
+    DFP = require("ti.dfp"),
+    _mode = true;
 
 // List ads to be created
 var banners = {
@@ -13,9 +14,6 @@ var banners = {
     Ti.API.info(TAG, "Construct ads page");
     $.version.text += Ti.App.version;
     resetButton();
-
-    // Enable debug
-    DFP.debug = true;
 
     // Instantiate DFP views
     banners.default = DFP.createView({
@@ -33,6 +31,7 @@ var banners = {
     });
 
     banners.smart = DFP.createView({
+        debug: true,
         top: 20,
         width: Ti.UI.FILL,
         height: 50,
@@ -42,6 +41,7 @@ var banners = {
             // "testDeviceID"
         ]
     });
+
 
     banners.sizes = DFP.createView({
         top: 20,
@@ -72,8 +72,9 @@ function doButtonClick() {
     // Simulate later unit ID change
     banners.smart.adUnitId = "/6236286/DFP-mode";
     banners.smart.extras = {
-        mode: '1'
+        mode: _mode?1:2
     };
+    _mode = !_mode; // switch mode
 
     $.refreshBtn.setTitle("Requesting...");
     $.refreshBtn.setEnabled(false);
